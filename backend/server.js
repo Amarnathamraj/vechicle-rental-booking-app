@@ -1,6 +1,6 @@
 
 const express = require('express');
-
+const cors = require('cors');
 const sequelize = require('./config/db');
 
 
@@ -12,7 +12,7 @@ const Booking = require('./models/Booking');
 const app = express();
 
 app.use(express.json());
-
+app.use(cors())
 
 sequelize.sync().then(() => {
     console.log('Database connected');
@@ -73,7 +73,8 @@ app.post('/api/bookings', (req, res) => {
     }
 
     Booking.findAll({
-        where: { vehicleId: vehicleId }
+        where: { vehicleId: vehicleId },
+         include: [{ model: Vehicle, attributes: ['name'] }]
     })
     .then((bookings) => {
      
