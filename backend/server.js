@@ -68,7 +68,7 @@ app.post('/api/bookings', (req, res) => {
 
     
     if (newEndDate <= newStartDate) {
-        res.status(400).json({ error: 'End date must be after start date' });
+        res.status(400).json({ error: 'End date must be after start date'});
         return;
     }
 
