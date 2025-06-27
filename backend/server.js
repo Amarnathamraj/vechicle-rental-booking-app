@@ -14,9 +14,17 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
-sequelize.sync().then(() => {
-    console.log('Database connected');
-});
+// sequelize.sync().then(() => {
+//     console.log('Database connected');
+// });
+sequelize.authenticate()
+  .then(() => {
+    console.log('my sql workbech Database connected');
+  })
+  .catch((err) => {
+    console.error('Unable to connect to the database:', err);
+  });
+
 
 
 app.get('/api/vehicle-types/:wheels', (req, res) => {

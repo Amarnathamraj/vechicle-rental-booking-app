@@ -126,7 +126,6 @@ const App = () => {
         // Show animation
         setShowAnimation(true);
   
-        // Hide animation and fetch bookings after 2.5s
         setTimeout(() => {
           setShowAnimation(false);
           setFormData({
@@ -353,21 +352,50 @@ const App = () => {
 
               <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
                 {step === 6 ? (
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={() => {
-                      setStep(1);
-                      setBookings([]);
-                    }}
-                    sx={{ px: 4 }}
-                  >
-                    Start Over
-                  </Button>
+                 <Button
+                 variant="contained"
+                 color="primary"
+                 onClick={() => {
+                   setStep(1);
+                   setBookings([]);
+                 }}
+                 sx={{
+                   mt: 2,
+                   width: '100%',
+                   backgroundColor: '#A6A7A9',
+                   color: 'black',
+                   py: 1.5,
+                   fontSize: '1rem',
+                   fontWeight: 'bold',
+                   '&:hover': {
+                     backgroundColor: '#d5d5d5',
+                   },
+                 }}
+               >
+                 Start Over
+               </Button>
+               
                 ) : (
-                  <Button variant="contained" color="primary" onClick={handleNext} sx={{ px: 4 }}>
-                    {step === 5 ? 'Submit' : 'Next'}
-                  </Button>
+                  <Button
+  variant="contained"
+  color="primary"
+  onClick={handleNext}
+  sx={{
+    mt: 2,
+    width: '100%',
+    backgroundColor: '#A6A7A9',
+    color: 'black',
+    py: 1.5, // vertical padding increased
+    fontSize: '1rem', 
+    fontWeight: 'bold',
+    '&:hover': {
+      backgroundColor: '#d5d5d5',
+    },
+  }}
+>
+  {step === 5 ? 'Submit' : 'Next'}
+</Button>
+
                 )}
               </Box>
             </Box>
