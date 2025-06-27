@@ -1,0 +1,17 @@
+.car,
+.bike {
+  font-size: 48px;
+  position: absolute;
+  top: 0;
+  right: -60px;
+  animation: moveRightToLeft 4s linear forwards; /* slowed down to 4s */
+}
+
+@keyframes moveRightToLeft {
+  from {
+    right: -60px;
+  }
+  to {
+    right: 100%;
+  }
+}

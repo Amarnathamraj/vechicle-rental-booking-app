@@ -19,6 +19,8 @@ module.exports = {
                 { id: 5, name: 'Maruti Dzire', vehicleTypeId: 3, createdAt: new Date(), updatedAt: new Date() },
                 { id: 6, name: 'Honda Civic', vehicleTypeId: 3, createdAt: new Date(), updatedAt: new Date() },
                 { id: 7, name: 'Royal Enfield Classic', vehicleTypeId: 4, createdAt: new Date(), updatedAt: new Date() },
+                { id: 8, name: 'Yamaha ', vehicleTypeId: 4, createdAt: new Date(), updatedAt: new Date() }, 
+
             ]);
         });
     },

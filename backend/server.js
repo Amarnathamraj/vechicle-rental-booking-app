@@ -71,13 +71,17 @@ app.post('/api/bookings', (req, res) => {
         res.status(400).json({ error: 'End date must be after start date'});
         return;
     }
+    //checks if the selected vehicle is already booked for the 
+    //requested date range.
+// If a conflict -found,dates overlap,  send an error.
 
+//If no conflict, proceeds to create the booking using Booking.create().
     Booking.findAll({
         where: { vehicleId: vehicleId },
          include: [{ model: Vehicle, attributes: ['name'] }]
     })
     .then((bookings) => {
-     
+        console.log(JSON.stringify(bookings)); 
         for (let booking of bookings) {
           
             const existingStartDate = new Date(booking.startDate);
@@ -113,6 +117,18 @@ app.post('/api/bookings', (req, res) => {
     });
 });
 
+app.get('/api/bookings', (req, res) => {
+    Booking.findAll({
+        include: [{ model: Vehicle, attributes: ['name'] }],
+        attributes: ['firstName', 'lastName', 'startDate', 'endDate']
+    })
+    .then((bookings) => {
+        res.json(bookings);
+    })
+    .catch(() => {
+        res.status(500).json({ error: 'Failed to load bookings' });
+    });
+});
 
 const PORT = 5000;
 app.listen(PORT, () => {
