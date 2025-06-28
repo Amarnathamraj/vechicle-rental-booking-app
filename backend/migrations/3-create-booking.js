@@ -1,47 +1,47 @@
 // Create the Bookings table
-module.exports = {
-    up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable('Bookings', {
-            id: {
-                allowNull: false,
-                autoIncrement: true,
-                primaryKey: true,
+module.exports={
+    up: (queryInterface,Sequelize)=>{
+        return queryInterface.createTable('Bookings',{
+            id:{
+            allowNull:false,
+            autoIncrement:true,
+            primaryKey:true,
                 type: Sequelize.INTEGER,
             },
-            firstName: {
+            firstName:{
+                type:Sequelize.STRING,
+                allowNull:false,
+            },
+            lastName:{
                 type: Sequelize.STRING,
                 allowNull: false,
             },
-            lastName: {
-                type: Sequelize.STRING,
-                allowNull: false,
-            },
-            vehicleId: {
-                type: Sequelize.INTEGER,
-                references: {
+            vehicleId:{
+                type:Sequelize.INTEGER,
+                references:{
                     model: 'Vehicles',
                     key: 'id',
                 },
             },
-            startDate: {
+            startDate:{
                 type: Sequelize.DATE,
                 allowNull: false,
             },
-            endDate: {
+            endDate:{
                 type: Sequelize.DATE,
                 allowNull: false,
             },
-            createdAt: {
+            createdAt:{
                 allowNull: false,
                 type: Sequelize.DATE,
             },
-            updatedAt: {
+            updatedAt:{
                 allowNull: false,
                 type: Sequelize.DATE,
             },
         });
     },
-    down: (queryInterface, Sequelize) => {
+    down:(queryInterface, Sequelize)=>{
         return queryInterface.dropTable('Bookings');
     },
 };

@@ -1,40 +1,33 @@
-// create the VehicleTypes table in MySQL in my system
+// created the VehicleTypes table in MySQL in my system
 module.exports = {
     up: (queryInterface, Sequelize) => {
-      
-        return queryInterface.createTable('VehicleTypes', {
-      
-            id: {
-                allowNull: false,
-                autoIncrement: true,
-                primaryKey: true,
-                type: Sequelize.INTEGER,
+      return queryInterface.createTable('VehicleTypes', {
+            id:{
+            allowNull:false,
+             autoIncrement:true,
+            primaryKey:true,
+             type: Sequelize.INTEGER,
             },
-         
-            name: {
+            name:{
                 type: Sequelize.STRING,
-                allowNull: false,
+                allowNull:false,
             },
-           
-            wheels: {
+            wheels:{
                 type: Sequelize.INTEGER,
-                allowNull: false,
+                allowNull:false,
             },
-            
-            createdAt: {
-                allowNull: false,
+            createdAt:{
+                allowNull:false,
                 type: Sequelize.DATE,
             },
-          
-            updatedAt: {
-                allowNull: false,
-                type: Sequelize.DATE,
+           updatedAt:{
+                allowNull:false,
+            type: Sequelize.DATE,
             },
         });
     },
-    down: (queryInterface, Sequelize) => {
-       
-        return queryInterface.dropTable('VehicleTypes');
+    down:(queryInterface,Sequelize)=>{
+       return queryInterface.dropTable('VehicleTypes');
     },
 };
 //const { DataTypes } = require('sequelize');
