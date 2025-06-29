@@ -66,7 +66,7 @@ if (newEndDate <= newStartDate) {
 
     Booking.findAll({
         where: { vehicleId: vehicleId },
-         include: [{ model: Vehicle, attributes: ['name'] }]
+         include: [{ model:Vehicle,attributes: ['name'] }]
     })
 // slect bookings.*, Vehicles.name FROM  bookings iNNER JOIN 
 //  Vehicles on Bookings.vehicleId = Vehicles.id where   bookings.vehicleId = 5;
